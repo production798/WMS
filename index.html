@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rkive WMS</title>
+<meta name="description" content="Install the Rkive City WMS on your phone">
+<meta name="theme-color" content="#1A2849">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Rkive WMS">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+  /* ====== The one thing to change if the WMS link ever changes ====== */
+  var WMS_URL = 'https://script.google.com/a/macros/rkives.co/s/AKfycbxof7wB4_GSDhMSMPfiEDnWjUsL35VIljhBC9hNsUL-oizLA6H3grLZ-H-L6Jt9zws/exec';
+
+  // Opened from the home-screen icon → go straight to the WMS.
+  var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+  if (standalone || /[?&]app=1\b/.test(location.search)) {
+    document.documentElement.className = 'launching';
+    location.replace(WMS_URL);
+  }
+</script>
+<style>
+  :root{
+    --paper:#EEEAE2; --card:#FFFFFF; --ink:#172036; --muted:#5A6378; --line:#D8DDE6;
+    --denim:#1A2849; --accent:#2A4B8D; --accent-dk:#1D3770; --selvedge:#B32A33; --cloth:#EFEDE7;
+    --type:'Courier Prime','Courier New',monospace; --sans:'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%;color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+    background:linear-gradient(rgba(42,75,141,.07) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(42,75,141,.07) 1px,transparent 1px) 0 0/24px 24px,var(--paper)}
+  .wrap{max-width:440px;margin:0 auto;padding:max(36px,env(safe-area-inset-top)) 16px 40px}
+  .icon{display:block;width:132px;height:132px;margin:0 auto 18px;border-radius:30px;box-shadow:0 2px 4px rgba(23,32,54,.12),0 14px 34px rgba(23,32,54,.22)}
+  h1{font-family:var(--type);font-weight:700;font-size:30px;letter-spacing:-.01em;text-align:center;margin:0}
+  .lead{text-align:center;color:var(--muted);margin:6px 0 26px}
+  .card{position:relative;background:var(--card);border-radius:12px;padding:22px 22px 20px 30px;box-shadow:0 1px 2px rgba(23,32,54,.08),0 10px 28px rgba(23,32,54,.12)}
+  .card::before{content:"";position:absolute;top:0;bottom:0;left:0;width:9px;border-radius:12px 0 0 12px;
+    background:linear-gradient(to right,var(--cloth) 0 3px,var(--selvedge) 3px 5px,var(--cloth) 5px 7px,#C9C5BA 7px 9px)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;border-radius:10px;padding:15px 18px;font:600 17px var(--sans);cursor:pointer;text-decoration:none}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.primary:active{background:var(--accent-dk)}
+  .btn:focus-visible,a:focus-visible{outline:3px solid #8FB0E8;outline-offset:2px}
+  h2{font-family:var(--type);font-size:19px;margin:0 0 12px}
+  ol{margin:0;padding:0;list-style:none;counter-reset:s}
+  ol li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid #EEF0F4}
+  ol li:first-child{border-top:0;padding-top:2px}
+  ol li::before{content:counter(s);flex:0 0 26px;height:26px;border-radius:50%;background:var(--denim);color:#fff;font:700 14px/26px var(--type);text-align:center}
+  .glyph{display:inline-flex;vertical-align:-5px;width:24px;height:24px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:6px;background:#F5F6F9;margin:0 2px}
+  .note{font-size:14px;color:var(--muted);margin:14px 0 0}
+  .done{display:flex;gap:12px;align-items:center}
+  .done svg{flex:0 0 auto}
+  .alt{display:block;text-align:center;margin:22px 0 0;font-family:var(--type);font-weight:700;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .tag{text-align:center;font-family:var(--type);font-weight:700;color:#4A4F5C;margin:30px 0 0}
+  [hidden]{display:none!important}
+  .launching body > *{display:none}
+  .launching body::after{content:"Opening Rkive WMS…";position:fixed;inset:0;display:grid;place-items:center;font:700 18px var(--type);color:var(--ink)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <img class="icon" src="icon-512.png" alt="Rkive City WMS app icon" width="132" height="132">
+  <h1>Rkive WMS</h1>
+  <p class="lead">Put the WMS on your phone's home screen. It opens with one tap, straight to the login page.</p>
+
+  <!-- Android / Chrome: the browser's own install window -->
+  <section class="card" id="installBox" hidden>
+    <button type="button" class="btn primary" id="installBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+      Install the app
+    </button>
+    <p class="note">Your phone asks you to confirm. The Rkive WMS icon then appears on your home screen.</p>
+  </section>
+
+  <!-- iPhone / iPad -->
+  <section class="card" id="iosBox" hidden>
+    <h2>Add to your iPhone</h2>
+    <ol>
+      <li><span>Tap the <b>Share</b> button <span class="glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A4B8D" stroke-width="2"><path d="M12 15V3m0 0L8 7m4-4l4 4"/><path d="M6 11H5v10h14V11h-1"/></svg></span> at the bottom of Safari (top right on iPad).</span></li>
+      <li><span>Scroll down and tap <b>Add to Home Screen</b> <span class="glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A4B8D" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>.</span></li>
+      <li><span>Tap <b>Add</b>. The Rkive WMS icon appears on your home screen.</span></li>
+    </ol>
+    <p class="note">Open this page in <b>Safari</b> to do this. In other browsers, open it in Safari first.</p>
+  </section>
+
+  <!-- Android when the button is not offered (other browsers, or Chrome before it is ready) -->
+  <section class="card" id="manualBox" hidden>
+    <h2>Add to your phone</h2>
+    <ol>
+      <li><span>Open this page in <b>Chrome</b>.</span></li>
+      <li><span>Tap the <b>menu</b> <span class="glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="#2A4B8D"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span> at the top right.</span></li>
+      <li><span>Tap <b>Install app</b> or <b>Add to Home screen</b>, then <b>Install</b>.</span></li>
+    </ol>
+  </section>
+
+  <!-- After installing -->
+  <section class="card" id="doneBox" hidden>
+    <div class="done">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#22603A" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+      <div><h2 style="margin:0">Installed</h2><span>Find the <b>Rkive WMS</b> icon on your home screen and open the WMS from there.</span></div>
+    </div>
+  </section>
+
+  <a class="alt" id="openNow" href="#">Open the WMS without installing</a>
+  <p class="tag">Reclaim the city.</p>
+</main>
+<script>
+  (function () {
+    document.getElementById('openNow').href = WMS_URL;
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+    var ua = navigator.userAgent || '';
+    var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var show = function (id) { ['installBox', 'iosBox', 'manualBox', 'doneBox'].forEach(function (b) { document.getElementById(b).hidden = b !== id; }); };
+    var prompt = null;
+    show(ios ? 'iosBox' : 'manualBox');
+    window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); prompt = e; show('installBox'); });
+    window.addEventListener('appinstalled', function () { prompt = null; show('doneBox'); });
+    document.getElementById('installBtn').addEventListener('click', function () {
+      if (!prompt) { show('manualBox'); return; }
+      prompt.prompt();
+      prompt.userChoice.then(function (c) { if (c && c.outcome === 'accepted') show('doneBox'); prompt = null; });
+    });
+  })();
+</script>
+</body>
+</html>
